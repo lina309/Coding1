@@ -1,0 +1,65 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+
+import java.util.*;
+class Result {
+
+    /*
+     * Complete the 'maxStrength' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts INTEGER n as parameter.
+     */
+
+    public static int maxStrength(int n) {
+    // n is the id of 1st player
+        ArrayList al=new ArrayList();
+        int strength=0;
+        int max=n;
+     
+        int fact_N=0;
+        do{
+            fact_N=sum_fact_digits(n);
+            if(al.contains(fact_N)) break;
+            else{
+                al.add(fact_N);
+                if (fact_N>max){
+                    max=fact_N;
+                }
+                n=fact_N;
+            }
+        }while(true);
+        //for (Object num1: al) {
+        //   System.out.println(num1);
+        //}
+        strength=max*al.size();
+        return strength;
+    }
+    public static int sum_fact_digits(int num){
+        int d=0,sum=0;
+        while(num!=0){
+            
+            sum+=factorial(d);
+            num=num/10;
+        }
+        //System.out.println("Sum is: "+sum);
+        return sum;
+    }
+    public static int factorial(int num){
+        int res=1;
+        if(num==0)res=1;
+        else{
+            for(int i=1;i<=num;i++){
+                res=res*i;
+            }
+        }
+        return res;
+    }
+
+}
