@@ -22,7 +22,7 @@ class Result {
         ArrayList al=new ArrayList();
         int strength=0;
         int max=n;
-        al.add(n);
+     
         int fact_N=0;
         do{
             fact_N=sum_fact_digits(n);
@@ -44,7 +44,7 @@ class Result {
     public static int sum_fact_digits(int num){
         int d=0,sum=0;
         while(num!=0){
-            d=num%10;
+            
             sum+=factorial(d);
             num=num/10;
         }
